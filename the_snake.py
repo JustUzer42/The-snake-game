@@ -1,7 +1,5 @@
 import random
 import sys
-
-
 import pygame as pg
 
 
@@ -145,8 +143,7 @@ class Snake(GameObject):
         screen.fill(BOARD_BACKGROUND_COLOR)
         self.positions = [SNAKE_START_POSITION]
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
-
-
+        self._init_state()
 
 
 # Маппинг клавиш: клавиша -> (новое_направление, запрещённое_направление)
