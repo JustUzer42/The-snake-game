@@ -1,6 +1,9 @@
 import random
 import sys
+
+
 import pygame as pg
+
 
 # Константы для размеров поля и сетки:
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
@@ -53,7 +56,8 @@ class GameObject:
         self.position = position
         self.body_color = body_color
 
-    def draw_cell(self, screen, position, cell_color, border_color=BORDER_COLOR):
+    def draw_cell(self, screen, position, cell_color,
+                  border_color=BORDER_COLOR):
         """Отрисовать одну ячейку с указанными цветами."""
         rect = pg.Rect(position, (GRID_SIZE, GRID_SIZE))
         pg.draw.rect(screen, cell_color, rect)
@@ -77,7 +81,8 @@ class Apple(GameObject):
             grid_x = random.randint(0, GRID_WIDTH - 1) * GRID_SIZE
             grid_y = random.randint(0, GRID_HEIGHT - 1) * GRID_SIZE
             self.position = (grid_x, grid_y)
-            if occupied_positions is None or self.position not in occupied_positions:
+            if occupied_positions is None or \
+                    self.position not in occupied_positions:
                 break
 
     def draw(self, screen):
@@ -140,7 +145,7 @@ class Snake(GameObject):
         screen.fill(BOARD_BACKGROUND_COLOR)
         self.positions = [SNAKE_START_POSITION]
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
-        self._init_state()
+
 
 
 
